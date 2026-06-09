@@ -14,7 +14,7 @@ Currently SDWebImage org provide 3 kinds of SVG Coder Plugin support, here is co
 | Plugin Name| Vector Image | Bitmap Image | Platform | Compatibility | Dependency |
 |---|---|---|---|---|---|
 | [SVGNativeCoder](https://github.com/SDWebImage/SDWebImageSVGNativeCoder) | NO | YES | iOS 9+ | Best and W3C standard | adobe/svg-native-viewer |
-| [SVGCoder](https://github.com/SDWebImage/SDWebImageSVGCoder) | YES | YES | iOS 13+ | OK but buggy on some SVG | Apple CoreSVG(Private) |
+| [SVGCoder](https://github.com/SDWebImage/SDWebImageSVGCoder) | YES | YES | iOS 15+ | OK but buggy on some SVG | Apple CoreSVG(Private) |
 | [SVGKitPlugin](https://github.com/SDWebImage/SDWebImageSVGKitPlugin) | YES | NO | iOS 9+ | Worst, no longer maintain | SVGKit/SVGKit    
 
 ## What's for
@@ -52,7 +52,7 @@ You can modify the code or use some other SVG files to check the compatibility.
 
 ## Requirements
 
-+ iOS 13+
++ iOS 15+
 + tvOS 13+
 + macOS 10.15+
 + watchOS 6+
@@ -220,13 +220,13 @@ This framework supports backward deployment on iOS 12-/macOS 10.14-. And you can
 For CocoaPods user, you can skip the platform version validation in Podfile with:
 
 ```ruby
-platform :ios, '13.0' # This does not effect your App Target's deployment target version, just a hint for CocoaPods
+platform :ios, '15.0' # This does not effect your App Target's deployment target version, just a hint for CocoaPods
 ```
 
 Pay attention, you should always use the runtime version check to ensure those symbols are available, you should mark all the classes use public API with `API_AVAILABLE` annotation as well. See below:
 
 ```objective-c
-if (@available(iOS 13, *)) {
+if (@available(iOS 15, *)) {
     [SDImageCodersManager.sharedCoder addCoder:SDImageSVGCoder.sharedCoder];
 } else {
     [SDImageCodersManager.sharedCoder addCoder:SDImageSVGKCoder.sharedCoder];
